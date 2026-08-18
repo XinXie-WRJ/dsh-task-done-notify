@@ -1,0 +1,15 @@
+# 依赖 / 产物
+node_modules/
+*.tgz
+*.tsbuildinfo
+
+# 本地备份文件（每次手工改 lib 前会 Copy-Item 生成的 .dsh-bak-*）
+*.dsh-bak-*
+*.bak
+*~ 
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

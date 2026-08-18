@@ -1,0 +1,11 @@
+# dsh-task-done-notify bundle patch: 任务完成系统通知 + 桌面端任务栏数字角标。
+#
+# 安装：`dsh plugin --profile web add <本目录路径>`（自动追加到 dsh.profile.bundles）
+# 生效：重启 dsh web / 桌面版后，插件出现在「设置 → 插件 → 插件列表」并可开关。
+#
+# node 半边（exports "."）在宿主进程运行：轮询根 agent 状态、PowerShell 弹通知与
+# 设角标、注册 /dsh-task-done/* HTTP 路由；dsh.client 声明让浏览器半边
+# （exports "./client"）在 web GUI 加载：右下角未读角标条 + 焦点自动清除。
+- insert:
+    - id: dsh-task-done-notify
+      name: 'dsh-task-done-notify'
