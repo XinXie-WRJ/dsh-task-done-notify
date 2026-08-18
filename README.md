@@ -14,9 +14,21 @@
 
 ## 安装
 
-```sh
-dsh plugin --profile web add D:\MyProject\Tools\dsh-task-done-notify
-```
+> ### 方式一：从 GitHub 安装（推荐）
+>
+> ```sh
+> git clone https://github.com/XinXie-WRJ/dsh-task-done-notify.git
+> cd dsh-task-done-notify
+> dsh plugin --profile web add .
+> ```
+>
+> 若已克隆在本地任意位置，直接 `dsh plugin --profile web add <克隆目录路径>` 即可。
+>
+> ### 方式二：本机开发路径（link 安装，改代码即时生效）
+>
+> ```sh
+> dsh plugin --profile web add D:\MyProject\Tools\DSHTools\dsh-task-done-notify
+> ```
 
 安装后**重启 dsh web / 桌面版**，插件即出现在插件列表页并生效。
 
@@ -25,6 +37,19 @@ dsh plugin --profile web add D:\MyProject\Tools\dsh-task-done-notify
 ```sh
 dsh plugin --profile web remove dsh-task-done-notify
 ```
+
+## 版本管理（Git）
+
+本仓库由 git 管理（远端：`https://github.com/XinXie-WRJ/dsh-task-done-notify`，本地目录 `D:\MyProject\Tools\DSHTools\dsh-task-done-notify`），每次改动可以方便回退：
+
+```sh
+# 查看历史 / 回退示例
+git log --oneline
+git checkout <commit> -- lib/index.js   # 单独回滚某个文件
+git revert <commit>                      # 撤销某次提交
+```
+
+> 本机开发目录通过 `dsh plugin add <目录>` link 安装，改完 `lib/` 后用注入器热重载（`dev_reload_package dsh-task-done-notify`）即生效，再 commit 推送即可安全迭代。`.gitignore` 已排除 `node_modules/`、`*.tgz`、本地 `*.dsh-bak-*` 备份文件。
 
 ## 工作原理
 
